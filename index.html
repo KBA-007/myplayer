@@ -3,51 +3,49 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Video Player</title>
+  <title>Video Lectures – NEETx</title>
   <style>
     body {
       margin: 0;
-      font-family: sans-serif;
-      background: linear-gradient(to right, #9a1d86, #ff4b2b);
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #a11cf3, #ff2e63);
       color: white;
       padding: 20px;
     }
     h1 {
       text-align: center;
+      margin-bottom: 40px;
     }
     .video-card {
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255,255,255,0.1);
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 16px;
       margin: 20px 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    .video-card h2 {
-      margin-top: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     video {
       width: 100%;
-      max-height: 400px;
-      margin-bottom: 10px;
-      border-radius: 10px;
+      border-radius: 12px;
+      margin-bottom: 12px;
     }
     .btn {
-      background-color: white;
-      color: #ff4b2b;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-weight: bold;
+      background: white;
+      color: #ff2e63;
+      padding: 10px 16px;
+      border-radius: 8px;
       text-decoration: none;
+      margin-right: 10px;
+      font-weight: bold;
       transition: 0.3s;
     }
     .btn:hover {
-      background-color: #ffe1e1;
+      background: #ffe3f1;
     }
   </style>
 </head>
 <body>
-  <h1>📚 All Lectures</h1>
-  <div id="video-list">Loading videos...</div>
+  <h1>📚 NEETx – Video Lectures</h1>
+  <div id="video-list">Loading...</div>
 
   <script src="videoData.js"></script>
   <script>
@@ -57,13 +55,12 @@
     videos.forEach((vid) => {
       const card = document.createElement("div");
       card.className = "video-card";
-
       card.innerHTML = `
         <h2>${vid.title}</h2>
-        <video controls src="${vid.url}"></video><br>
-        <a class="btn" href="${vid.url}" target="_blank" download>⬇ Download Video</a>
+        <video controls src="${vid.url}"></video>
+        ${vid.download ? `<a class="btn" href="${vid.url}" download target="_blank">⬇ Download</a>` : ""}
+        ${vid.tgjoin ? `<a class="btn" href="${vid.tgjoin}" target="_blank">📲 Join Telegram</a>` : ""}
       `;
-
       container.appendChild(card);
     });
   </script>
