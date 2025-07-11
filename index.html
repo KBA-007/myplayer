@@ -1,34 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Video Player</title>
+  <meta charset="UTF-8">
+  <title>Mr. Titans Player</title>
   <style>
     body {
-      background: #111;
-      color: #fff;
+      background-color: #111;
+      color: white;
+      text-align: center;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
     }
+
+    .button {
+      display: inline-block;
+      margin: 20px 10px;
+      padding: 12px 24px;
+      font-size: 16px;
+      text-decoration: none;
+      color: white;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .telegram-btn {
+      background: linear-gradient(to right, #0088cc, #00c6ff);
+    }
+
+    .download-btn {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+    }
+
+    .button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+    }
+
     video {
-      width: 90%;
-      max-width: 800px;
-      border: 2px solid #0f0;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #0f0;
+      width: 80%;
+      margin-top: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
     }
   </style>
 </head>
 <body>
-  <h1>🎬 MrTitan's Stream</h1>
-  <video controls autoplay>
-    <source src="https://YOUR_VIDEO_LINK_HERE.mp4" type="video/mp4" />
+
+  <h1>🎬 Mr Titans Video Player</h1>
+
+  <video controls>
+    <source src="https://example.com/video.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+
+  <div>
+    <a class="button telegram-btn" href="https://t.me/yourchannel" target="_blank">📢 Join on Telegram</a>
+    <a class="button download-btn" href="https://example.com/video.mp4" download>⬇️ Download Video</a>
+  </div>
+
 </body>
 </html>
