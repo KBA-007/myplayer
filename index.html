@@ -2,71 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>📚 Mr Titans Lectures</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Video Player</title>
   <style>
     body {
-      background: linear-gradient(to right, #7b1fa2, #e91e63);
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      padding: 20px;
       margin: 0;
+      font-family: sans-serif;
+      background: linear-gradient(to right, #9a1d86, #ff4b2b);
+      color: white;
+      padding: 20px;
     }
     h1 {
       text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 30px;
     }
-    .card {
-      background: white;
-      color: #333;
-      border-radius: 15px;
-      margin: 20px auto;
-      max-width: 700px;
+    .video-card {
+      background: rgba(255, 255, 255, 0.1);
       padding: 20px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    .video-card h2 {
+      margin-top: 0;
     }
     video {
       width: 100%;
+      max-height: 400px;
+      margin-bottom: 10px;
       border-radius: 10px;
     }
-    .btns {
-      margin-top: 15px;
-    }
     .btn {
-      background: crimson;
-      color: white;
+      background-color: white;
+      color: #ff4b2b;
       padding: 10px 20px;
-      margin: 5px;
+      border-radius: 5px;
+      font-weight: bold;
       text-decoration: none;
-      border-radius: 8px;
-      display: inline-block;
       transition: 0.3s;
     }
     .btn:hover {
-      background: black;
+      background-color: #ffe1e1;
     }
   </style>
 </head>
 <body>
-  <h1>📚 Mr Titans Video Library</h1>
-  <div id="videoContainer"></div>
+  <h1>📚 All Lectures</h1>
+  <div id="video-list">Loading videos...</div>
 
   <script src="videoData.js"></script>
   <script>
-    const container = document.getElementById('videoContainer');
-    videos.forEach(video => {
-      const card = document.createElement('div');
-      card.className = 'card';
+    const container = document.getElementById("video-list");
+    container.innerHTML = "";
+
+    videos.forEach((vid) => {
+      const card = document.createElement("div");
+      card.className = "video-card";
+
       card.innerHTML = `
-        <h2>${video.title}</h2>
-        <video controls preload="none">
-          <source src="${video.link}" type="video/mp4" />
-        </video>
-        <div class="btns">
-          <a class="btn" href="${video.link}" download>⬇ Download</a>
-          <a class="btn" href="https://t.me/NEETx_Titan" target="_blank">📲 Join Telegram</a>
-        </div>
+        <h2>${vid.title}</h2>
+        <video controls src="${vid.url}"></video><br>
+        <a class="btn" href="${vid.url}" target="_blank" download>⬇ Download Video</a>
       `;
+
       container.appendChild(card);
     });
   </script>
