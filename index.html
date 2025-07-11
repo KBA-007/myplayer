@@ -3,53 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mr Titans Stream</title>
+  <title>Mr Titans Player</title>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       font-family: 'Segoe UI', sans-serif;
       color: white;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
+      flex-direction: column;
       min-height: 100vh;
-      background-attachment: fixed;
     }
 
-    .container {
-      margin-top: 60px;
-      background: rgba(255, 255, 255, 0.06);
-      padding: 30px;
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
       border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-      backdrop-filter: blur(10px);
-      text-align: center;
+      padding: 30px;
       width: 90%;
       max-width: 800px;
+      text-align: center;
     }
 
     h1 {
       font-size: 28px;
-      margin-bottom: 15px;
-      color: #fff;
+      margin-bottom: 10px;
     }
 
     p {
+      color: #ddd;
       font-size: 16px;
       margin-bottom: 25px;
-      color: #ddd;
     }
 
     video {
       width: 100%;
-      border-radius: 15px;
-      margin-bottom: 25px;
-      box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
-    .buttons {
+    .btn-container {
       display: flex;
       justify-content: center;
       gap: 15px;
@@ -58,14 +61,12 @@
 
     .btn {
       padding: 12px 24px;
-      font-size: 16px;
       border-radius: 30px;
-      text-decoration: none;
       font-weight: bold;
-      transition: 0.3s ease;
       color: white;
-      border: none;
-      cursor: pointer;
+      text-decoration: none;
+      font-size: 16px;
+      transition: all 0.3s ease;
     }
 
     .telegram {
@@ -78,34 +79,33 @@
 
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
     }
 
     footer {
-      margin-top: 40px;
-      font-size: 14px;
+      margin-top: 30px;
+      font-size: 13px;
       color: #aaa;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>📚 Mr Titans Educational Stream</h1>
-    <p>Stream high-quality educational content — Powered by Titan!</p>
+  <div class="card">
+    <h1>🎥 Mr Titans Stream</h1>
+    <p>Watch NEET, JEE, and educational content in full HD.</p>
 
     <video controls autoplay>
       <source src="https://example.com/video.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
 
-    <div class="buttons">
-      <a href="https://t.me/NEETx_Titan" class="btn telegram" target="_blank">📢 Join Telegram</a>
-      <a href="https://example.com/video.mp4" class="btn download" download>⬇️ Download Video</a>
+    <div class="btn-container">
+      <a href="https://t.me/NEETx_Titan" target="_blank" class="btn telegram">📢 Join Telegram</a>
+      <a href="https://example.com/video.mp4" download class="btn download">⬇️ Download Video</a>
     </div>
   </div>
 
-  <footer>
-    © 2025 Mr Titans | All rights reserved.
-  </footer>
+  <footer>© 2025 Mr Titans | Built with 💌 </footer>
 </body>
 </html>
