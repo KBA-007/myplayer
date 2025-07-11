@@ -3,20 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Custom TG Video Player</title>
+    <title>Mr. X Titans Player</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <div class="video-container">
-        <video id="myVideoPlayer" controls playsinline>
-            Your browser does not support the video tag.
-        </video>
-        <div class="controls-overlay">
-            <button id="tgButton" class="control-button">
-                <img src="telegram-icon.png" alt="Telegram" width="24" height="24"> Join TG
+    <div class="player-wrapper">
+        <h1 class="player-title">Mr. X Titans Player</h1>
+        <div class="video-container">
+            <video id="myVideoPlayer" controls playsinline></video>
+            </div>
+        <div class="player-controls-bottom">
+            <button id="tgButton" class="control-button glow-on-hover">
+                <i class="fab fa-telegram-plane icon-left"></i> Join TG
             </button>
-            <button id="downloadButton" class="control-button">
-                <img src="download-icon.png" alt="Download" width="24" height="24"> Download
+            <button id="downloadButton" class="control-button glow-on-hover">
+                <i class="fas fa-download icon-left"></i> Download
             </button>
         </div>
     </div>
