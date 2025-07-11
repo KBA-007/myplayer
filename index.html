@@ -2,110 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <title>Mr Titans Pro Player</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mr x Titans Player</title>
+
+  <!-- Video.js CSS -->
+  <link href="https://vjs.zencdn.net/8.10.0/video-js.css" rel="stylesheet" />
+
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
-      padding: 0;
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      font-family: 'Segoe UI', sans-serif;
+      font-family: Arial, sans-serif;
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-      border-radius: 20px;
-      padding: 30px;
-      width: 90%;
-      max-width: 800px;
       text-align: center;
+      padding: 40px 10px;
     }
 
     h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-
-    p {
-      color: #ddd;
-      font-size: 16px;
-      margin-bottom: 25px;
-    }
-
-    video {
-      width: 100%;
-      max-width: 100%;
-      border-radius: 12px;
+      color: #fff;
       margin-bottom: 20px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     }
 
-    .btn-container {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
+    .video-js {
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 25px rgba(255,255,255,0.1);
     }
 
     .btn {
+      display: inline-block;
+      margin: 10px;
       padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: bold;
+      background: linear-gradient(45deg, #00c6ff, #0072ff);
       color: white;
+      border-radius: 30px;
       text-decoration: none;
-      font-size: 16px;
+      font-weight: bold;
       transition: all 0.3s ease;
-    }
-
-    .telegram {
-      background: linear-gradient(45deg, #0088cc, #00c6ff);
-    }
-
-    .download {
-      background: linear-gradient(45deg, #ff416c, #ff4b2b);
     }
 
     .btn:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 13px;
-      color: #aaa;
-      text-align: center;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🎥 Mr x Titans Stream</h1>
-    <p>Watch NEET, JEE, and educational content in full HD.</p>
 
-    <video controls autoplay>
-      <source src="https://example.com/video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+  <h1>🎬 Mr Titans PRO Player</h1>
 
-    <div class="btn-container">
-      <a href="https://t.me/NEETx_Titan" target="_blank" class="btn telegram">📢 Join Telegram</a>
-      <a href="https://example.com/video.mp4" download class="btn download">⬇️ Download Video</a>
-    </div>
+  <!-- Video.js Player -->
+  <video id="my-video" class="video-js vjs-default-skin" controls preload="auto" data-setup='{}'>
+    <source src="https://example.com/video-720p.mp4" type="video/mp4" label="720p" res="720" />
+    <source src="https://example.com/video-480p.mp4" type="video/mp4" label="480p" res="480" />
+    <!-- You can add more quality links here -->
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript.
+    </p>
+  </video>
+
+  <!-- Buttons -->
+  <div>
+    <a href="https://t.me/NEETx_Titan" class="btn" target="_blank">📢 Join Telegram</a>
+    <a href="https://example.com/video-720p.mp4" class="btn" download>⬇️ Download</a>
   </div>
 
-  <footer>© 2025 Mr x Titans | Built with 💌 </footer>
+  <!-- Video.js JS -->
+  <script src="https://vjs.zencdn.net/8.10.0/video.min.js"></script>
+
+  <!-- Quality Selector Plugin -->
+  <script src="https://cdn.jsdelivr.net/npm/videojs-resolution-switcher@0.4.2/lib/videojs-resolution-switcher.js"></script>
+  <script>
+    var player = videojs('my-video');
+    player.updateSrc([
+      {
+        src: 'https://example.com/video-720p.mp4',
+        type: 'video/mp4',
+        label: '720p',
+        res: 720
+      },
+      {
+        src: 'https://example.com/video-480p.mp4',
+        type: 'video/mp4',
+        label: '480p',
+        res: 480
+      }
+    ]);
+    player.videoJsResolutionSwitcher({ default: 'high' });
+  </script>
 </body>
 </html>
