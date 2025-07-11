@@ -4,42 +4,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const downloadButton = document.getElementById('downloadButton');
 
     // --- Video Source Handling ---
-    // Option 1: URL parameter se video link lena (Recommended for sharing)
     const urlParams = new URLSearchParams(window.location.search);
-    const videoUrl = urlParams.get('video'); // 'video' parameter ko check karega
+    const videoUrl = urlParams.get('video'); 
     
     if (videoUrl) {
-        // Decode the URL to handle special characters (like the hash in your TG link)
         videoPlayer.src = decodeURIComponent(videoUrl);
-        videoPlayer.load(); // Load the new video source
+        videoPlayer.load(); 
         videoPlayer.play().catch(error => {
             console.log("Autoplay prevented:", error);
-            // Optionally show a message to the user to click play
+            // Optionally, show a message to the user: "Click play to start video."
         });
     } else {
-        // Fallback: Agar URL mein koi video link nahi hai
-        console.log("No video URL provided in the URL parameter. Please add ?video=YOUR_ENCODED_TG_LINK");
-        // videoPlayer.src = "fallback_video.mp4"; // Aap yahan koi default video set kar sakte hain
+        console.log("Video URL missing. Please add ?video=YOUR_ENCODED_TG_LINK to the URL.");
+        // Fallback or placeholder video
+        // videoPlayer.src = "https://www.w3schools.com/html/mov_bbb.mp4"; // Example fallback video
+        // videoPlayer.load();
+        // alert("No video URL provided. Please add ?video=YOUR_ENCODED_TG_LINK to the URL.");
     }
 
     // --- Button Functionality ---
 
     // Telegram Button
     tgButton.addEventListener('click', () => {
-        // Replace with your Telegram Channel/Group link
-        const tgLink = 'https://t.me/YourTelegramChannelOrGroup'; 
-        window.open(tgLink, '_blank'); // Opens in a new tab
+        // *** YAHAN APNA TELEGRAM CHANNEL/GROUP LINK DALNA HAI ***
+        const tgLink = 'https://t.me/YOUR_TELEGRAM_CHANNEL_LINK_HERE'; 
+        window.open(tgLink, '_blank'); 
     });
 
     // Download Button
     downloadButton.addEventListener('click', () => {
-        // Download current video. Ensure the TG link allows direct download.
-        // For some TG links, this might just open the link in a new tab instead of downloading directly.
         if (videoPlayer.src) {
             const currentVideoSrc = videoPlayer.src;
             const link = document.createElement('a');
             link.href = currentVideoSrc;
-            link.download = 'video_download.mp4'; // You can make this dynamic if needed
+            link.download = 'MrXTitans_Video.mp4'; // Download hone wali file ka naam
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -47,13 +45,4 @@ document.addEventListener('DOMContentLoaded', () => {
             alert('No video loaded to download!');
         }
     });
-
-    // Optional: Hide controls when video plays and show on hover
-    // videoPlayer.addEventListener('play', () => {
-    //     // You might want to hide the overlay after a few seconds of play
-    // });
-
-    // videoPlayer.addEventListener('pause', () => {
-    //     // Always show controls on pause
-    // });
 });
