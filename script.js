@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const currentVideoSrc = videoPlayer.src;
             const link = document.createElement('a');
             link.href = currentVideoSrc;
-            link.download = 'MrXTitans_Video.mp4'; // Download hone wali file ka naam
+            link.download = 'MrXTitans_Video.mp4'; 
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
