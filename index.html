@@ -2,110 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mr Titans Player</title>
+  <title>Mr Titans Lectures</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #7b1fa2, #e91e63);
       color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      min-height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+      margin: 0;
     }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
-      border-radius: 20px;
-      padding: 30px;
-      width: 90%;
-      max-width: 800px;
-      text-align: center;
-    }
-
     h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
     }
-
-    p {
-      color: #ddd;
-      font-size: 16px;
-      margin-bottom: 25px;
+    .card {
+      background: white;
+      color: #333;
+      border-radius: 15px;
+      margin: 20px auto;
+      max-width: 700px;
+      padding: 20px;
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
     }
-
     video {
       width: 100%;
-      max-width: 100%;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+      border-radius: 10px;
     }
-
-    .btn-container {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
+    .btns {
+      margin-top: 15px;
     }
-
     .btn {
-      padding: 12px 24px;
-      border-radius: 30px;
-      font-weight: bold;
+      background: crimson;
       color: white;
+      padding: 10px 20px;
+      margin: 5px;
       text-decoration: none;
-      font-size: 16px;
-      transition: all 0.3s ease;
+      border-radius: 8px;
+      display: inline-block;
+      transition: 0.3s;
     }
-
-    .telegram {
-      background: linear-gradient(45deg, #0088cc, #00c6ff);
-    }
-
-    .download {
-      background: linear-gradient(45deg, #ff416c, #ff4b2b);
-    }
-
     .btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
-    }
-
-    footer {
-      margin-top: 30px;
-      font-size: 13px;
-      color: #aaa;
-      text-align: center;
+      background: black;
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🎥 Mr Titans Stream</h1>
-    <p>Watch NEET, JEE, and educational content in full HD.</p>
+  <h1>📚 Mr Titans Video Library</h1>
+  <div id="videoContainer"></div>
 
-    <video controls autoplay>
-      <source src="https://example.com/video.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
-
-    <div class="btn-container">
-      <a href="https://t.me/NEETx_Titan" target="_blank" class="btn telegram">📢 Join Telegram</a>
-      <a href="https://example.com/video.mp4" download class="btn download">⬇️ Download Video</a>
-    </div>
-  </div>
-
-  <footer>© 2025 Mr Titans | Built with 💙 GitHub Pages</footer>
+  <script src="videoData.js"></script>
+  <script>
+    const container = document.getElementById('videoContainer');
+    videos.forEach(video => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <h2>${video.title}</h2>
+        <video controls preload="none">
+          <source src="${video.link}" type="video/mp4" />
+        </video>
+        <div class="btns">
+          <a class="btn" href="${video.link}" download>⬇ Download</a>
+          <a class="btn" href="https://t.me/NEETx_Titan" target="_blank">📲 Join Telegram</a>
+        </div>
+      `;
+      container.appendChild(card);
+    });
+  </script>
 </body>
 </html>
