@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Telegram Button
     tgButton.addEventListener('click', () => {
         // *** YAHAN APNA TELEGRAM CHANNEL/GROUP LINK DALNA HAI ***
-        const tgLink = 'https://t.me/YOUR_TELEGRAM_CHANNEL_LINK_HERE'; 
+        const tgLink = 'https://t.me/NEETxJEE_Official'; 
         window.open(tgLink, '_blank'); 
     });
 
