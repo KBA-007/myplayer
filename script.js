@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Optionally, show a message to the user: "Click play to start video."
         });
     } else {
-        console.log("Video URL missing. Please add ?video=YOUR_ENCODED_TG_LINK to the URL.");
+        console.log("Video URL missing. Please add ?video=https://stream.pwjarvis.app/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ2aWRlb0lkIjoiZmJhYWNmNDktYzgzNC00YzZlLWE3MzEtZWI3NGEzZTE0NDEyIiwiZXhwIjoxNzU1MjYyMTE2fQ.AqOqtdCspRfcDLj17mScDSNpo3jfCDC3QHWZdWZ76Hs/hls/360/main.m3u8");
         // Fallback or placeholder video
         // videoPlayer.src = "https://www.w3schools.com/html/mov_bbb.mp4"; // Example fallback video
         // videoPlayer.load();
